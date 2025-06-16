@@ -1,0 +1,11 @@
+#ThemeChanger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: beige;
+}
+
