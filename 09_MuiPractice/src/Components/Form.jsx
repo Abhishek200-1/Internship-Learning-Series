@@ -9,7 +9,8 @@ const Form = () => {
         name: "",
         email: "",
         password: "",
-        terms:true
+        terms:true,
+        courses
     });
     
     //input handle function
@@ -87,7 +88,7 @@ const Form = () => {
             <br /><br />
             <FormControl sx={{ width: '310px' }} size='small'>
                 <InputLabel id="menu">Courses</InputLabel>
-                <Select labelId='menu' id='menu-list' label="courses" value={inputs.courses}>
+                <Select labelId='menu' id='menu-list' label="courses" value={inputs.courses} onChange={() => (setInputs)}>
                     <MenuItem value={'MongoDB'}>MongoDB</MenuItem>
                     <MenuItem value={'JavaScript'}>JavaScript</MenuItem>
                     <MenuItem value={'CSS'}>CSS</MenuItem>
