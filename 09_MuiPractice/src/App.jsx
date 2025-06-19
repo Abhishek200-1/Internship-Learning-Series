@@ -8,7 +8,6 @@ import Models from './Components/Models'
 const App = () => {
 
   const [value, setValue] = useState(0);
-
   return (
     <div>
       {/* typography is used to style text */}
