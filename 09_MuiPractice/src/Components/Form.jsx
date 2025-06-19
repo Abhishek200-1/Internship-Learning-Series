@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Button, TextField, FormGroup, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import { Typography, Button, TextField, FormGroup, FormControlLabel, Checkbox, FormControl, InputLabel, Select, MenuItem, FormLabel, FormHelperText, RadioGroup, Radio } from '@mui/material'
 import { useState } from 'react'
 
 const Form = () => {
@@ -10,7 +10,8 @@ const Form = () => {
         email: "",
         password: "",
         terms:true,
-        courses
+        courses:"",
+        gender:""
     });
     
     //input handle function
@@ -28,7 +29,9 @@ const Form = () => {
         setInputs({
             name:"",
             email:"",
-            password:""
+            password:"",
+            courses:"",
+            gender:""
         })
     };
 
@@ -85,15 +88,37 @@ const Form = () => {
                     />} 
                 />
             </FormGroup>
-            <br /><br />
-            <FormControl sx={{ width: '310px' }} size='small'>
+            <br />
+            <FormControl sx={{ width: '310px', margin:'10px' }} size='small'>
                 <InputLabel id="menu">Courses</InputLabel>
-                <Select labelId='menu' id='menu-list' label="courses" value={inputs.courses} onChange={() => (setInputs)}>
+                <Select labelId='menu' id='menu-list' label="courses" value={inputs.courses} onChange={handleChange} name='courses'>
                     <MenuItem value={'MongoDB'}>MongoDB</MenuItem>
                     <MenuItem value={'JavaScript'}>JavaScript</MenuItem>
                     <MenuItem value={'CSS'}>CSS</MenuItem>
                     <MenuItem value={'C++'}>C++</MenuItem>
                 </Select>
+            </FormControl>
+            <br />
+            <FormControl>
+              <FormLabel sx={{margin:"10px"}}>Gender</FormLabel>
+                  <RadioGroup aria-label="" name="gender" onChange={handleChange} sx={{margin:"10px", marginTop:"-5px"}}>
+                    <FormControlLabel 
+                        value={'male'} 
+                        label='Male' 
+                        control={<Radio/>}
+                    />
+                    <FormControlLabel 
+                        value={'female'} 
+                        label='Female' 
+                        control={<Radio/>}
+                    />
+                    <FormControlLabel 
+                        value={'other'} 
+                        label='Other' 
+                        control={<Radio/>}
+                    />
+                  </RadioGroup>
+              <FormHelperText></FormHelperText>
             </FormControl>
             <br /><br />
             <Button type='submit' variant="contained" color="success" sx={{margin:"10px"}}>Submit</Button>
