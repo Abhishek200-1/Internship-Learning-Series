@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, Modal, Typography } from '@mui/material'
+import { Box, Button, Link, Modal, Typography } from '@mui/material'
 
 const Models = () => {
 
@@ -16,6 +16,7 @@ const Models = () => {
           </Button>
         </Box>
       </Modal>
+      <Link variant='h5' color='secondary' href='www.google.com' underline='always'>Nav Link</Link>
     </div>
   )
 }
