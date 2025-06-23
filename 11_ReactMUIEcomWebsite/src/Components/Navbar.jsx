@@ -5,8 +5,9 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from 'react';
 import { deepOrange, orange } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Navbar = () => {
 
   const [anchorNav, setAnchorNav] = useState(null);
   const [anchorUserNav, setAnchorUserNav] = useState(null);
@@ -56,7 +57,7 @@ const Header = () => {
           {/* Center Links */}
           <Box  sx={{ flexGrow: 1, justifyContent: 'center', marginLeft:'-20px', display: { xs: 'none', md: 'flex' }}}>
             <ButtonGroup color='inherit'>
-              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#home'>Home</Button>
+              <Button component={Link} to='/' variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#home'>Home</Button>
               <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#about-us'>About Us</Button>
               <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#contact-us'>Contact Us</Button>
               <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href="#explore-menu">Menu</Button>
@@ -65,7 +66,7 @@ const Header = () => {
 
           {/* cart */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton color="inherit" sx={{ p: 2 }}>
+            <IconButton component={Link} to="/cart" color="inherit" sx={{ p: 2 }}>
               <ShoppingCartIcon />
             </IconButton>
             <Tooltip title="Open settings">
@@ -75,9 +76,9 @@ const Header = () => {
             </Tooltip>
             <Menu anchorEl={anchorUserNav} open={Boolean(anchorUserNav)} onClose={handleCloseUserNavMenu}>
               <MenuList>
-                <MenuItem>Profile</MenuItem>
+                <MenuItem component={Link} to="/my-profile">Profile</MenuItem>
                 <MenuItem>Acount</MenuItem>
-                <MenuItem>Dashboard</MenuItem>
+                <MenuItem component={Link} to="/my-orders" >My Orders</MenuItem>
                 <MenuItem>Logout</MenuItem>
               </MenuList>
             </Menu>
@@ -89,4 +90,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Navbar

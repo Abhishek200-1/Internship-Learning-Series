@@ -1,26 +1,29 @@
 import React from 'react'
-import Header from './Components/Header'
 import Footer from './Components/Footer'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
-import ExploreMenu from './Components/ExploreMenu'
-import AboutUs from './Pages/AboutUs'
-import ContactUs from './Pages/ContactUs'
-// import FoodDisplay from './Components/FoodDisplay'
+import Navbar from './Components/Navbar'
+import Cart from './Pages/Cart'
+import PlaceOrder from './Pages/PlaceOrder'
+import MyOrders from './Pages/MyOrders'
+import Profile from './Pages/Profile'
+
 
 
 const App = () => {
   return (
     <>
       <div className='container'>
-      <Header/>
-      {/* Routes Come here */}
+        <Navbar/>
       <main className='global-padding-wrapper'>
-        <Home/>
-        <ExploreMenu/>
-        {/* <FoodDisplay category="All"/> */}
-        <AboutUs/>
-        <ContactUs/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/order' element={<PlaceOrder/>}/>
+          <Route path='/my-orders' element={<MyOrders/>}/>
+          <Route path='/my-profile' element={<Profile/>}/>         
+        </Routes>
       </main>
       <Footer/>
       </div>
