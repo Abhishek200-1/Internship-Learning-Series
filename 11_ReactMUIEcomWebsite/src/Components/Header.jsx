@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{backgroundColor:'#fff', boxShadow:'none', color:'gray '}}>
+    <AppBar position="fixed" color='inherit' sx={{boxShadow:'none', color:'gray '}}>
       <Container maxWidth='xl'>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Logo */}
