@@ -56,11 +56,10 @@ const Header = () => {
           {/* Center Links */}
           <Box  sx={{ flexGrow: 1, justifyContent: 'center', marginLeft:'-20px', display: { xs: 'none', md: 'flex' }}}>
             <ButtonGroup color='inherit'>
-              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}}>Home</Button>
-              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}}>About Us</Button>
-              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}}>Contact Us</Button>
+              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#home'>Home</Button>
+              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#about-us'>About Us</Button>
+              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href='#contact-us'>Contact Us</Button>
               <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}} href="#explore-menu">Menu</Button>
-              <Button variant='text' sx={{fontSize:'18px', textTransform: 'capitalize',}}>Mobile App</Button>
             </ButtonGroup>
           </Box>
 

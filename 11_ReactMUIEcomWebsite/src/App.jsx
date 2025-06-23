@@ -5,6 +5,7 @@ import './App.css'
 import Home from './Pages/Home'
 import ExploreMenu from './Components/ExploreMenu'
 import AboutUs from './Pages/AboutUs'
+import ContactUs from './Pages/ContactUs'
 // import FoodDisplay from './Components/FoodDisplay'
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <ExploreMenu/>
         {/* <FoodDisplay category="All"/> */}
         <AboutUs/>
+        <ContactUs/>
       </main>
       <Footer/>
       </div>

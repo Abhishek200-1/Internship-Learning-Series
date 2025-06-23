@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Container, Typography, Divider } from '@mui/material'
 import { assets } from '../assets/assets'
 
 const AboutUs = () => {
   return (
-    <>
-        <Box sx={{display: 'flex',flexDirection: { xs: 'column', md: 'row' },alignItems: 'center',justifyContent: 'center',padding: 4,borderRadius: '16px',mt: 5,}}>
-            <Box sx={{width: { xs: '100%', md: '50%' },display: 'flex',justifyContent: 'center',}}>
+    <Container id="about-us" maxWidth="xl" sx={{ px: { xs: 4, sm: 8, md: 16, },py: 6}}>
+        <Box sx={{display: 'flex',flexDirection: { xs: 'column', md: 'row' },alignItems: 'center',justifyContent: 'center',gap:"180px"}}>
+            <Box sx={{width: { xs: '100%', md: '50%' },display: 'flex',justifyContent: 'center', pr: { md: 4 },}}>
                 <Box component="img" src={assets.header_img12} alt="About Us" sx={{width: '100%',maxWidth: '500px',borderRadius: '16px',boxShadow: 3,}}/>
             </Box>
 
@@ -27,7 +27,8 @@ const AboutUs = () => {
                 </Button>
             </Box>
         </Box>
-    </>
+        <Divider sx={{ my: 2, backgroundColor: '#e2e2e2', height: '2px', mt:12 }} />
+    </Container>
   )
 }
 

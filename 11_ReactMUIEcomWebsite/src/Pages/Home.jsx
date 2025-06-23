@@ -13,7 +13,7 @@ const Home = () => {
     const [menu, setMenu] = useState("");
 
   return (
-    <Box sx={{height: '70vh', width:'80vw', backgroundImage: `url(${images[currentImage]})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2, borderTopRightRadius: '50px', borderBottomLeftRadius: '50px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', transition: 'background-image 1s ease-in-out', margin: '80px auto'}}>
+    <Box id="home" sx={{height: '70vh', width:'80vw', backgroundImage: `url(${images[currentImage]})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2, borderTopRightRadius: '50px', borderBottomLeftRadius: '50px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)', transition: 'background-image 1s ease-in-out', margin: '80px auto'}}>
         <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1))', zIndex: 1, }}/>
         <Box sx={{position: 'relative', zIndex: 2, marginRight:"250px", p: { xs: 3, sm: 5 }, borderRadius: '16px', maxWidth: '85vw', textAlign: 'start', animation: 'fadeIn 1.5s ease-in-out', '@keyframes fadeIn': {from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' },},}}>
             <Typography variant="h3" sx={{mb: 2,fontWeight: 700,fontSize: { xs: '6vw', sm: '3vw' },color: 'white',textShadow: '2px 2px 10px rgba(0,0,0,0.5)',}}>
