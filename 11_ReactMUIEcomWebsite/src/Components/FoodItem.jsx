@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Typography, IconButton, dividerClasses } from '@mui/material';
+import { Box, Typography, IconButton, Rating } from '@mui/material';
 import { assets } from '../assets/assets';
 
 const FoodItem = ({ id, name, price, description, image }) => {
 
     const [itemCount, setItemCount] = useState(0);
+    const [value, setValue] = useState(3);
 
   return (
     <Box sx={{display: 'flex',justifyContent: 'center',width: '100%',my: 2}}>
@@ -34,7 +35,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
                         <Typography sx={{ fontSize: 18, fontWeight: 'bold',color: '#2E8B57', transition: 'color 0.3s ease-in-out','&:hover': {color: '#1E6B45'}}}>
                             {name}
                         </Typography>
-                    <Box component="img" src={assets.rating_starts} alt="rating" />
+                    <Rating sx={{fontSize:"18px"}} name="simple-controlled" value={value} onChange={(event, newValue) => {setValue(newValue);}}/>
                 </Box>
 
                 <Typography sx={{ color: '#4A4A4A', fontSize: 14, textAlign: 'left', minHeight: 40, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2,mb: 1,transition: 'color 0.3s ease-in-out','&:hover': {color: '#333'}}}>

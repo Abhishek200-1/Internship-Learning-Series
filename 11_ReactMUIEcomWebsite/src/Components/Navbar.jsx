@@ -4,7 +4,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from 'react';
-import { deepOrange, orange } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -51,7 +50,7 @@ const Navbar = () => {
             <IconButton sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, marginRight:'-6px' }}>
               <FastfoodIcon sx={{color:"#2E8B57"}} />
             </IconButton>
-            <Typography variant="h6" noWrap component="a" href="#" sx={{display: { xs: 'none', md: 'flex' },fontWeight: 800,color: '#2E8B57',textDecoration: 'none',}}>NomNomGo.</Typography>
+            <Typography variant="h6" noWrap component="a" href="#" sx={{display: { xs: 'none', md: 'flex' },fontWeight: 800,color: '#2E8B57',textDecoration: 'none',}}>Food Zone.</Typography>
           </Box>
 
           {/* Center Links */}

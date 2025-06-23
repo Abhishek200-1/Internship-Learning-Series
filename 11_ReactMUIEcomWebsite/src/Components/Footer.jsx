@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/materia
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 
 const Footer = () => {
   return (
@@ -11,9 +12,13 @@ const Footer = () => {
         <Grid container spacing={4}>
 
           <Grid item xs={12} md={4} sx={{width:"650px"}}>
-            <Typography variant="h5" fontWeight="bold" gutterBottom>
-                NomNomGo.
-            </Typography> 
+            <IconButton sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, marginRight:'-6px' }}>
+              <FastfoodIcon sx={{color:"#2E8B57", fontSize: '32px'}} />
+              <Typography variant="h4" fontWeight="bold"  sx={{color: '#2E8B57'}}>
+                Food Zone.
+              </Typography> 
+            </IconButton>
+            
             <Typography variant="body2">
               Delicious food delivered to your doorstep. Order now and enjoy! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, neque! Quisquam neque, fugiat perspiciatis vitae aut modi qui consequatur? Praesentium.
             </Typography>  
@@ -57,7 +62,7 @@ const Footer = () => {
               </Link>
             <Typography variant="body2">
               <Link href="mailto:contact@nomnomgo.com" color="inherit" underline="hover" sx={{'&:hover': {color: '#2E8B57', textDecoration: 'underline',},}}>
-                contact@nomnomgo.com
+                contact@foodzone.com
               </Link>
             </Typography>
           </Grid>
@@ -65,7 +70,7 @@ const Footer = () => {
 
         <Box sx={{ textAlign: 'center', pt: 4 }}>
           <Typography variant="body2" color="white">
-            © {new Date().getFullYear()} NomNomGo. All rights reserved.
+            © {new Date().getFullYear()} Food Zone. All rights reserved.
           </Typography>
         </Box>
       </Container>
