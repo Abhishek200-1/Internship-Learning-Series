@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Typography, IconButton, Rating } from '@mui/material';
 import { assets } from '../assets/assets';
+import { StoreContext } from '../Context/StoreContext';
 
 const FoodItem = ({ id, name, price, description, image }) => {
-
-    const [itemCount, setItemCount] = useState(0);
+    
+    //import all functions
+    const {cartItems, addToCart, removeFromCart} = useContext(StoreContext);
+    //state for rating
     const [value, setValue] = useState(3);
 
   return (
@@ -12,19 +15,19 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <Box sx={{width: '100%',maxWidth: 280, height: 400, borderTopRightRadius: '40px', borderBottomLeftRadius: '40px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out', backgroundColor: 'white', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '2px solid transparent', position: 'relative',}}>
             <Box sx={{position: 'relative',width: '100%',height: 180, background: 'linear-gradient(to bottom, #eaf5ea, white)'}}>
                 <Box component="img" src={image} alt="" sx={{width: '100%',height: '100%',objectFit: 'cover',borderBottomLeftRadius: '40px',transition: 'transform 0.4s ease-in-out','&:hover': {transform: 'scale(1.05)'}}}/>
-                    {itemCount === 0 ? (
-                    <IconButton onClick={() => setItemCount(prev => prev + 1)} sx={{ position: 'absolute', bottom: 10, right: 10, borderRadius: '50%', backgroundColor: 'rgba(46, 139, 87, 0.8)', padding: 1,'&:hover': {backgroundColor: 'rgba(46, 139, 87, 1)',},}}>
+                    {!cartItems[id] ? (
+                    <IconButton onClick={()=> addToCart(id)} sx={{ position: 'absolute', bottom: 10, right: 10, borderRadius: '50%', backgroundColor: 'rgba(46, 139, 87, 0.8)', padding: 1,'&:hover': {backgroundColor: 'rgba(46, 139, 87, 1)',},}}>
                     <Box component="img" src={assets.add_icon_white} alt="Add" sx={{ width: 24, height: 24 }} />
                     </IconButton>
                     ) : (
                     <Box sx={{position: 'absolute', bottom: 10, right: 10, display: 'flex', alignItems: 'center', gap: 1, padding: '6px 12px', borderRadius: '50px', backgroundColor: 'white', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', border: '2px solid #2E8B57',}}>
-                        <IconButton onClick={() => setItemCount(prev => prev - 1)} sx={{ padding: '4px' }}>
+                        <IconButton onClick={() => removeFromCart(id)} sx={{ padding: '4px' }}>
                             <Box component="img" src={assets.remove_icon_red} alt="Remove" sx={{ width: 24 }} />
                         </IconButton>
 
-                        <Typography sx={{ fontWeight: 'bold', color: '#2E8B57' }}>{itemCount}</Typography>
+                        <Typography sx={{ fontWeight: 'bold', color: '#2E8B57' }}>{cartItems[id]}</Typography>
 
-                        <IconButton onClick={() => setItemCount(prev => prev + 1)} sx={{ padding: '4px' }}>
+                        <IconButton onClick={() => addToCart(id)} sx={{ padding: '4px' }}>
                             <Box component="img" src={assets.add_icon_green} alt="Add" sx={{ width: 24 }} />
                         </IconButton>
                     </Box>)}

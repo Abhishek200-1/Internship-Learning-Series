@@ -54,7 +54,7 @@ const ContactUs = () => {
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 3 }}>
                     <EmailIcon color="success" />
-                    <Typography>support@nomnomgo.com</Typography>
+                    <Typography>support@foodzone.com</Typography>
                 </Stack>
 
                 <Divider sx={{ mb: 2 }} />

@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 
   const [anchorNav, setAnchorNav] = useState(null);
   const [anchorUserNav, setAnchorUserNav] = useState(null);
@@ -78,11 +78,10 @@ const Navbar = () => {
                 <MenuItem component={Link} to="/my-profile">Profile</MenuItem>
                 <MenuItem>Acount</MenuItem>
                 <MenuItem component={Link} to="/my-orders" >My Orders</MenuItem>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={() => setShowLogin(true)}>Login</MenuItem>
               </MenuList>
             </Menu>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>

@@ -8,15 +8,19 @@ import Cart from './Pages/Cart'
 import PlaceOrder from './Pages/PlaceOrder'
 import MyOrders from './Pages/MyOrders'
 import Profile from './Pages/Profile'
-
+import { useState } from 'react'
+import LoginPopUp from './Components/LoginPopUp'
 
 
 const App = () => {
+
+   const [showLogin, setShowLogin] = useState(false)
+
   return (
     <>
+    {showLogin?<LoginPopUp setShowLogin={setShowLogin}/>:<></>}
       <div className='container'>
-        <Navbar/>
-      <main className='global-padding-wrapper'>
+        <Navbar setShowLogin={setShowLogin}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/cart' element={<Cart/>}/>
@@ -24,9 +28,8 @@ const App = () => {
           <Route path='/my-orders' element={<MyOrders/>}/>
           <Route path='/my-profile' element={<Profile/>}/>         
         </Routes>
-      </main>
-      <Footer/>
       </div>
+      <Footer/>
     </>
   )
 }
