@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div id='home'>
-      <Navbar/>
+      <Navbar />
       <Header/>
       <ExploreMenu category={category} setCategory={setCategory}/>
       <FoodDisplay category={category}/>

@@ -22,6 +22,7 @@ const StoreContextProvider = (props) => {
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}));
     }
 
+    //to get total amount
     const getCartTotalAmount = () => {
         let totalAmount = 0;
         for(const item in cartItems)

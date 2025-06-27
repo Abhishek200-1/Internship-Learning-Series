@@ -78,12 +78,13 @@ const Navbar = ({setShowLogin}) => {
                 <MenuItem component={Link} to="/my-profile">Profile</MenuItem>
                 <MenuItem>Acount</MenuItem>
                 <MenuItem component={Link} to="/my-orders" >My Orders</MenuItem>
-                <MenuItem onClick={() => setShowLogin(true)}>Login</MenuItem>
+                <MenuItem onClick={() => alert('hello')}>Login</MenuItem>
               </MenuList>
             </Menu>
           </Box>
         </Toolbar>
       </Container>
+      
     </AppBar>
   )
 }

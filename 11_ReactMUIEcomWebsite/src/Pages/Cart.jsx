@@ -36,26 +36,36 @@ const Cart = () => {
           </Box>
         )
       ))}
-      <Box>
-          <Typography variant="h6">Cart Total</Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-            <Typography>Subtotal</Typography>
-            <Typography>₹{getCartTotalAmount()}</Typography>
+      <Box sx={{display:'flex', flexDirection:'row', mt:4}}>
+          <Box sx={{width:'40%'}} >
+            <Typography variant="h6">Cart Total</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+              <Typography>Subtotal</Typography>
+              <Typography>₹{getCartTotalAmount()}</Typography>
+            </Box>
+            <hr />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+              <Typography>Delivery Fee</Typography>
+              <Typography>₹ 50.00</Typography>
+            </Box>
+            <hr />
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+              <Typography>Total</Typography>
+              <Typography>{getCartTotalAmount()+50}</Typography>
+            </Box>
+            <Button variant="contained" fullWidth sx={{ marginTop: '15px', backgroundColor: '#2E8B57', '&:hover': { backgroundColor: '#1b6a44' } }}>
+              Proceed to Checkout
+            </Button>
           </Box>
-          <hr />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-            <Typography>Delivery Fee</Typography>
-            <Typography>₹ 50.00</Typography>
+
+          <Box sx={{width:'60%', marginLeft:'50px'}}>
+            <Typography variant="h6">Promocode</Typography>
+            <Box sx={{display: 'flex',gap: 2,alignItems: 'center',backgroundColor: '#f0f0f0',borderRadius: 2,p: 1,}}>
+            <TextField variant="outlined" size="small" fullWidth placeholder="Enter promo code" />
+            <Button variant="contained" sx={{backgroundColor: '#2E8B57','&:hover': {backgroundColor: '#1b6a44', }, }}>Apply</Button>
           </Box>
-          <hr />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-            <Typography>Total</Typography>
-            <Typography>{getCartTotalAmount()+50}</Typography>
-          </Box>
-          <Button variant="contained" fullWidth sx={{ marginTop: '15px', backgroundColor: '#2E8B57', '&:hover': { backgroundColor: '#1b6a44' } }}>
-            Proceed to Checkout
-          </Button>
         </Box>
+      </Box>
     </Box>
   )
 }
