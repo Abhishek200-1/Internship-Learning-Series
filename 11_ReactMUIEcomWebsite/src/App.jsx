@@ -9,7 +9,6 @@ import PlaceOrder from './Pages/PlaceOrder'
 import MyOrders from './Pages/MyOrders'
 import Profile from './Pages/Profile'
 import { useState } from 'react'
-import LoginPopUp from './Components/LoginPopUp'
 
 
 const App = () => {

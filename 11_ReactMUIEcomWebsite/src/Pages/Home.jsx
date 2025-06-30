@@ -9,10 +9,11 @@ import FoodDisplay from '../Components/FoodDisplay'
 const Home = () => {
 
     const [category, setCategory] = useState("All")
+    const [showLogin, setShowLogin] = useState(false)
 
   return (
     <div id='home'>
-      <Navbar />
+      <Navbar setShowLogin={setShowLogin}/>
       <Header/>
       <ExploreMenu category={category} setCategory={setCategory}/>
       <FoodDisplay category={category}/>
