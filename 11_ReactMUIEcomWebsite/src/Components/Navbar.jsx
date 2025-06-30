@@ -19,12 +19,15 @@ const Navbar = () => {
 
   const { getCartTotalAmount } = useContext(StoreContext);
 
-  // login/register states
+  
   const [openLogin, setOpenLogin] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
   const [form, setForm] = useState({ email: '', password: '', name: '' });
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')) || null);
   const [message, setMessage] = useState('');
+
+  
+  const [logoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
 
   const handleAuth = () => {
     if (!form.email || !form.password || (isRegister && !form.name)) {
@@ -114,7 +117,7 @@ const Navbar = () => {
                   <MenuItem>Acount</MenuItem>
                   <MenuItem component={Link} to="/my-orders">My Orders</MenuItem>
                   {!user && <MenuItem onClick={() => setOpenLogin(true)}>Login</MenuItem>}
-                  {user && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
+                  {user && <MenuItem onClick={() => setLogoutConfirmOpen(true)}>Logout</MenuItem>}
                 </MenuList>
               </Menu>
             </Box>
@@ -177,6 +180,30 @@ const Navbar = () => {
           >
             {isRegister ? 'Already have an account? Login' : "Don't have an account? Create one"}
           </Typography>
+        </Box>
+      </Dialog>
+
+      {/* Logout Confirmation Dialog */}
+      <Dialog open={logoutConfirmOpen} onClose={() => setLogoutConfirmOpen(false)}>
+        <Box sx={{ p: 3 }}>
+          <Typography variant="h6" sx={{ mb: 1 }}>Are you sure?</Typography>
+          <Typography variant="body2" sx={{ mb: 2 }}>Do you really want to logout?</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button onClick={() => setLogoutConfirmOpen(false)} sx={{ mr: 1 }}>
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={() => {
+                handleLogout();
+                setLogoutConfirmOpen(false);
+                handleCloseUserNavMenu();
+              }}
+            >
+              Logout
+            </Button>
+          </Box>
         </Box>
       </Dialog>
     </>

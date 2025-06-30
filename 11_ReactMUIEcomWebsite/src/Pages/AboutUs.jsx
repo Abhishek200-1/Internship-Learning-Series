@@ -14,7 +14,7 @@ const AboutUs = () => {
                 <Typography variant="h4" color="#155724" gutterBottom>
                     About Us</Typography>
                 <Typography variant="body1" color="text.secondary" mb={2}>
-                    Welcome to <Box component="span" sx={{ fontWeight: 'bold', color: '#218838' }}>NomNomGo.</Box>, we believe in delivering happiness in every bite. 
+                    Welcome to <Box component="span" sx={{ fontWeight: 'bold', color: '#218838' }}>FoodZone.</Box>, we believe in delivering happiness in every bite. 
                     Our mission is to bring you the best food from your favorite restaurants, 
                     fresh and hot, right to your doorstep.
                 </Typography>

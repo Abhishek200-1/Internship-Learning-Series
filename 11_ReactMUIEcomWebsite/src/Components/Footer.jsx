@@ -41,13 +41,13 @@ const Footer = () => {
               Follow Us
             </Typography>
             <Box>
-              <IconButton color="inherit" href="#" aria-label="Facebook">
+              <IconButton color="inherit" href="https://www.facebook.com" aria-label="Facebook">
                 <FacebookIcon sx={{'&:hover': {color: '#2E8B57', textDecoration: 'underline',},}}/>
               </IconButton>
-              <IconButton color="inherit" href="#" aria-label="Instagram">
+              <IconButton color="inherit" href="https://www.instagram.com" aria-label="Instagram">
                 <InstagramIcon sx={{'&:hover': {color: '#2E8B57', textDecoration: 'underline',},}}/>
               </IconButton>
-              <IconButton color="inherit" href="#" aria-label="Twitter">
+              <IconButton color="inherit" href="https://www.twitter.com" aria-label="Twitter">
                 <TwitterIcon sx={{'&:hover': {color: '#2E8B57', textDecoration: 'underline',},}}/>
               </IconButton>
             </Box>
