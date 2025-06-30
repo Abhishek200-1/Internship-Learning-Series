@@ -1,10 +1,11 @@
-import React from 'react'
-import {AppBar, Toolbar, Typography, Container, IconButton, Box, Button, Menu, MenuList, MenuItem, Tooltip, Avatar, ButtonGroup } from '@mui/material'
+import React, { useContext } from 'react'
+import {AppBar, Toolbar, Typography, Container, IconButton, Box, Button, Menu, MenuList, MenuItem, Tooltip, Avatar, ButtonGroup, Badge } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
 
@@ -26,6 +27,8 @@ const Navbar = ({setShowLogin}) => {
   const handleCloseUserNavMenu = () => {
     setAnchorUserNav(null);
   };
+
+  const {getCartTotalAmount} = useContext(StoreContext)
 
   return (
     <AppBar position="fixed" color='inherit' sx={{boxShadow:'none', color:'gray '}}>
@@ -66,8 +69,10 @@ const Navbar = ({setShowLogin}) => {
           {/* cart */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <IconButton component={Link} to="/cart" color="inherit" sx={{ p: 2 }}>
-              <ShoppingCartIcon />
-            </IconButton>
+      <Badge color="error" variant="dot" invisible={getCartTotalAmount() === 0}>
+        <ShoppingCartIcon />
+      </Badge>
+    </IconButton>
             <Tooltip title="Open settings">
               <IconButton sx={{ p: 0 }} onClick={handleOpenUserNavMenu}>
                 <Avatar sx={{ bgcolor: "#43a047 "}}>A</Avatar>

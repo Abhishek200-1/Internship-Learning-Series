@@ -1,11 +1,17 @@
-import React, { useContext } from 'react'
-import { StoreContext } from '../Context/StoreContext'
-import { Box, Typography, Avatar, IconButton, Button, TextField } from '@mui/material';
+import React, { useContext, useState } from 'react'
+import { StoreContext } from '../context/StoreContext';
+import { Box, Typography, Avatar, IconButton, Button, TextField, Snackbar, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
 
   const {cartItems, food_list, removeFromCart, getCartTotalAmount } = useContext(StoreContext);
+
+  //for alert
+  const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ padding: '20px', marginTop: '60px' }}>
@@ -46,14 +52,14 @@ const Cart = () => {
             <hr />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
               <Typography>Delivery Fee</Typography>
-              <Typography>₹ 50.00</Typography>
+              <Typography>₹ {getCartTotalAmount()===0?0:50}</Typography>
             </Box>
             <hr />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
               <Typography>Total</Typography>
-              <Typography>{getCartTotalAmount()+50}</Typography>
+              <Typography>{getCartTotalAmount()===0?0:getCartTotalAmount()+50}</Typography>
             </Box>
-            <Button variant="contained" fullWidth sx={{ marginTop: '15px', backgroundColor: '#2E8B57', '&:hover': { backgroundColor: '#1b6a44' } }}>
+            <Button onClick={() => { if (getCartTotalAmount() === 0) { setShowAlert(true);} else {navigate('/order');}}} variant="contained" fullWidth sx={{ marginTop: '15px',backgroundColor: '#2E8B57','&:hover': { backgroundColor: '#1b6a44' }}}>
               Proceed to Checkout
             </Button>
           </Box>
@@ -66,6 +72,12 @@ const Cart = () => {
           </Box>
         </Box>
       </Box>
+
+      <Snackbar open={showAlert} autoHideDuration={3000} onClose={() => setShowAlert(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+        <Alert severity="warning" sx={{ width: '100%' }}>
+          Please add some items to your cart!
+        </Alert>
+      </Snackbar>
     </Box>
   )
 }
