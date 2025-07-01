@@ -10,7 +10,7 @@ const AboutUs = () => {
                 <Box component="img" src={assets.header_img12} alt="About Us" sx={{width: '100%',maxWidth: '500px',borderRadius: '16px',boxShadow: 3,}}/>
             </Box>
 
-            <Box sx={{width: { xs: '100%', md: '50%'},textAlign: { xs: 'center', md: 'left' },}}>
+            <Box sx={{width: { xs: '100%', md: '50%'},textAlign: { xs: 'center', md: 'left' },}}>  
                 <Typography variant="h4" color="#155724" gutterBottom>
                     About Us</Typography>
                 <Typography variant="body1" color="text.secondary" mb={2}>
